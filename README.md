@@ -14,4 +14,4 @@ Last version: [last version .txt file](./LastVersion.txt). You can use for dynam
    Modifications are not permitted without prior written consent.
 
 
-<img src="https://hits.sh/gil22102026.github.io/Page-3D-Lib.svg" width="0" height="0" alt="" />
+<img src="https://hits.sh/gil22102026.github.io/Page-3D-Lib.svg?label=%D1%85%D0%B7" width="0" height="0" alt="" />

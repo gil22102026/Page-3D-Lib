@@ -1,5 +1,4 @@
 # Page-3D-Lib
-<img src="https://hits.sh/gil22102026.github.io/Page-3D-Lib.svg" width="0" height="0" alt="" />
 [Simple documentation](https://gil22102026.github.io/Page-3D-Lib/)
 
 Not all functions and features are currently operating as intended. But most functions and features work fine.
@@ -13,3 +12,6 @@ Last version: [last version .txt file](./LastVersion.txt). You can use for dynam
    This project is licensed under the [P3D Library License](./LICENSE). 
    Free to use in any project, including commercial ones. Attribution required. 
    Modifications are not permitted without prior written consent.
+
+
+<img src="https://hits.sh/gil22102026.github.io/Page-3D-Lib.svg" width="0" height="0" alt="" />

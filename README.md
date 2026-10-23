@@ -3,6 +3,6 @@ P3D Viewer: Declarative 3D for the web via simple HTML tags. No JS boilerplate. 
 
 
 ## License
-   This project is licensed under the [P3D Viewer Library License](./LICENSE.md). 
+   This project is licensed under the [P3D Viewer Library License](./LICENSE). 
    Free to use in any project, including commercial ones. Attribution required. 
    Modifications are not permitted without prior written consent.

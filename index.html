@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P3D Viewer — Documentation</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-2: #1c2128;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-2: #1f6feb;
+      --success: #3fb950;
+      --warning: #d29922;
+      --danger: #f85149;
+      --code-bg: #0d1117;
+      --code-border: #30363d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* Layout */
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      max-width: 1400px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    aside {
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    aside .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    aside .logo::before {
+      content: '';
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-radius: 6px;
+    }
+
+    aside nav ul { list-style: none; }
+    aside nav li { margin-bottom: 2px; }
+    aside nav a {
+      display: block;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: all 0.15s;
+    }
+    aside nav a:hover {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+    aside nav .section-title {
+      color: var(--text-muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 12px 12px 6px;
+      font-weight: 600;
+    }
+
+    /* Main content */
+    main {
+      padding: 40px 48px;
+      max-width: 900px;
+    }
+
+    header.page-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .badge.accent { color: var(--accent); border-color: var(--accent-2); }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 24px 0 12px;
+      color: var(--text);
+    }
+
+    p { margin-bottom: 16px; color: var(--text); }
+    strong { color: var(--text); font-weight: 600; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Code blocks */
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: 6px;
+      padding: 16px;
+      overflow-x: auto;
+      margin: 16px 0;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    code.inline {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 0.9em;
+      color: var(--accent);
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    th {
+      background: var(--surface-2);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(88, 166, 255, 0.04); }
+
+    /* Callouts */
+    .callout {
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 16px 0;
+      border-left: 4px solid;
+      font-size: 14px;
+    }
+    .callout.info {
+      background: rgba(88, 166, 255, 0.08);
+      border-color: var(--accent);
+    }
+    .callout.warning {
+      background: rgba(210, 153, 34, 0.08);
+      border-color: var(--warning);
+    }
+    .callout.success {
+      background: rgba(63, 185, 80, 0.08);
+      border-color: var(--success);
+    }
+    .callout strong { display: block; margin-bottom: 4px; }
+
+    /* Lists */
+    ul, ol { margin: 0 0 16px 24px; }
+    li { margin-bottom: 6px; }
+
+    /* Footer */
+    footer {
+      margin-top: 64px;
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+      main { padding: 24px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+  <aside>
+    <div class="logo">P3D</div>
+    <nav>
+      <div class="section-title">Getting Started</div>
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#install">Installation</a></li>
+        <li><a href="#quickstart">Quick Start</a></li>
+      </ul>
+      <div class="section-title">Core Concepts</div>
+      <ul>
+        <li><a href="#scene">p3d-scene</a></li>
+        <li><a href="#primitives">Primitives</a></li>
+        <li><a href="#models">External Models</a></li>
+        <li><a href="#lights">Lights</a></li>
+      </ul>
+      <div class="section-title">Features</div>
+      <ul>
+        <li><a href="#materials">Materials</a></li>
+        <li><a href="#animations">Animations</a></li>
+        <li><a href="#interaction">Interaction</a></li>
+        <li><a href="#api">JavaScript API</a></li>
+      </ul>
+      <div class="section-title">Advanced</div>
+      <ul>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#license">License</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <header class="page-header">
+      <h1>P3D</h1>
+      <p class="subtitle">Declarative 3D for the web via simple HTML tags. No JS boilerplate. No build tools.</p>
+      <div class="badges">
+        <span class="badge accent">v0.1.0</span>
+        <span class="badge">Three.js 0.160</span>
+        <span class="badge">~43KB</span>
+        <span class="badge">Source Available</span>
+      </div>
+    </header>
+
+    <section id="intro">
+      <h2>Introduction</h2>
+      <p>P3D Viewer is a lightweight library that brings 3D graphics directly into HTML. It uses custom HTML elements (like <code class="inline">&lt;p3d-scene&gt;</code> and <code class="inline">&lt;p3d-sphere&gt;</code>) to describe 3D scenes declaratively, without writing any JavaScript rendering code.</p>
+      <div class="callout info">
+        <strong>Key features</strong>
+        True background transparency, smart relative/absolute animations, PBR materials, mobile touch controls, and automatic off-screen pausing for peak performance.
+      </div>
+    </section>
+
+    <section id="install">
+      <h2>Installation</h2>
+      <p>Just include the library script in your HTML. No npm, no bundler required.</p>
+      <pre><code>&lt;script src="https://gil22102026.github.io/Page-3D-Lib/index.js"&gt;&lt;/script&gt;</code></pre>
+      <div class="callout warning">
+        <strong>Important</strong>
+        You must link to the original source. Re-hosting or mirroring the library is not permitted under the license.
+      </div>
+    </section>
+
+    <section id="quickstart">
+      <h2>Quick Start</h2>
+      <p>Create your first 3D scene in 3 lines of HTML:</p>
+      <pre><code>&lt;p3d-scene controls="orbit" theme="transparent" style="height: 400px;"&gt;
+  &lt;p3d-sphere radius="1" color="#58a6ff" anim-type="rotate"&gt;&lt;/p3d-sphere&gt;
+&lt;/p3d-scene&gt;</code></pre>
+      <p>That's it. A rotating blue sphere with transparent background and orbit controls.</p>
+    </section>
+
+    <section id="scene">
+      <h2>p3d-scene</h2>
+      <p>The container for all 3D objects. Handles camera, rendering, and performance.</p>
+      <table>
+        <thead>
+          <tr><th>Attribute</th><th>Type</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code class="inline">controls</code></td><td>string</td><td><code class="inline">"orbit"</code> enables mouse/touch camera control.</td></tr>
+          <tr><td><code class="inline">theme</code></td><td>color</td><td>Background color. Use <code class="inline">"transparent"</code> to show page background.</td></tr>
+          <tr><td><code class="inline">fog</code></td><td>string</td><td>Linear: <code class="inline">"#hex, near, far"</code>. Exponential: <code class="inline">"#hex, density"</code>.</td></tr>
+          <tr><td><code class="inline">no-default-light</code></td><td>boolean</td><td>Disables default studio lighting.</td></tr>
+          <tr><td><code class="inline">scroll-through</code></td><td>boolean</td><td>Allows vertical page scroll over the scene (mobile).</td></tr>
+          <tr><td><code class="inline">fps</code></td><td>number</td><td>Limits FPS (e.g., <code class="inline">30</code>) to save battery.</td></tr>
+          <tr><td><code class="inline">fov</code></td><td>number</td><td>Camera field of view (default: 50).</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="primitives">
+      <h2>Primitives</h2>
+      <p>Built-in geometric shapes. No file loading required.</p>
+      <table>
+        <thead>
+          <tr><th>Tag</th><th>Key Attributes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code class="inline">&lt;p3d-sphere&gt;</code></td><td><code class="inline">radius</code>, <code class="inline">segments</code></td></tr>
+          <tr><td><code class="inline">&lt;p3d-box&gt;</code></td><td><code class="inline">size</code> (e.g., "1,1,1")</td></tr>
+          <tr><td><code class="inline">&lt;p3d-cylinder&gt;</code></td><td><code class="inline">radius</code>, <code class="inline">height</code></td></tr>
+          <tr><td><code class="inline">&lt;p3d-cone&gt;</code></td><td><code class="inline">radius</code>, <code class="inline">height</code></td></tr>
+          <tr><td><code class="inline">&lt;p3d-pyramid&gt;</code></td><td><code class="inline">radius</code>, <code class="inline">height</code></td></tr>
+        </tbody>
+      </table>
+      <p>All primitives share common attributes: <code class="inline">pos</code>, <code class="inline">rot</code>, <code class="inline">scale</code>, <code class="inline">color</code>, <code class="inline">metalness</code>, <code class="inline">roughness</code>, <code class="inline">opacity</code>, <code class="inline">wireframe</code>, <code class="inline">emissive</code>.</p>
+    </section>
+
+    <section id="models">
+      <h2>External Models</h2>
+      <p>Load complex models from Blender, Sketchfab, etc. using <code class="inline">&lt;p3d-extern-model&gt;</code>:</p>
+      <pre><code>&lt;p3d-extern-model src="./model.glb" scale="1,1,1"&gt;&lt;/p3d-extern-model&gt;</code></pre>
+      <p>Supports <code class="inline">.glb</code> and <code class="inline">.gltf</code> formats.</p>
+    </section>
+
+    <section id="lights">
+      <h2>Lights</h2>
+      <p>Add custom lighting with <code class="inline">&lt;p3d-light&gt;</code>:</p>
+      <pre><code>&lt;p3d-scene no-default-light&gt;
+  &lt;p3d-sphere radius="1" color="#ffffff"&gt;&lt;/p3d-sphere&gt;
+  &lt;p3d-light type="point" color="#ff0000" intensity="5" pos="-3, 2, 2"&gt;&lt;/p3d-light&gt;
+  &lt;p3d-light type="point" color="#0000ff" intensity="5" pos="3, 2, 2"&gt;&lt;/p3d-light&gt;
+&lt;/p3d-scene&gt;</code></pre>
+      <p>Available types: <code class="inline">ambient</code>, <code class="inline">directional</code>, <code class="inline">point</code>, <code class="inline">spot</code>.</p>
+    </section>
+
+    <section id="materials">
+      <h2>Materials &amp; Patterns</h2>
+      <p>Full PBR (Physically Based Rendering) support:</p>
+      <table>
+        <thead>
+          <tr><th>Attribute</th><th>Range</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code class="inline">metalness</code></td><td>0.0 – 1.0</td><td>Metallic shine. 1.0 = mirror.</td></tr>
+          <tr><td><code class="inline">roughness</code></td><td>0.0 – 1.0</td><td>Surface roughness. 0.0 = glossy, 1.0 = matte.</td></tr>
+          <tr><td><code class="inline">emissive</code></td><td>#hex</td><td>Self-illumination color.</td></tr>
+          <tr><td><code class="inline">pattern</code></td><td>string</td><td>Procedural: <code class="inline">dots</code>, <code class="inline">stripes</code>, <code class="inline">checker</code>, <code class="inline">gradient</code>.</td></tr>
+          <tr><td><code class="inline">pattern-bg</code></td><td>#hex</td><td>Background color of the pattern.</td></tr>
+          <tr><td><code class="inline">texture</code></td><td>URL</td><td>External texture image.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="animations">
+      <h2>Animations</h2>
+      <p>Built-in animations: <code class="inline">rotate</code>, <code class="inline">float</code>, <code class="inline">pulse</code>.</p>
+      <h3>Animation Modes</h3>
+      <p>The <code class="inline">anim-mode</code> attribute controls how animations interact with base coordinates:</p>
+      <table>
+        <thead>
+          <tr><th>Mode</th><th>Behavior</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code class="inline">absolute</code> (default)</td><td>Animation overrides base coordinates. Object teleports to animation origin.</td></tr>
+          <tr><td><code class="inline">relative</code></td><td>Animation is applied on top of base coordinates. Object stays in place and animates around it.</td></tr>
+        </tbody>
+      </table>
+      <pre><code>&lt;!-- Floats around its own position (2, 1, 0) --&gt;
+&lt;p3d-box pos="2, 1, 0" anim-type="float" anim-mode="relative"&gt;&lt;/p3d-box&gt;
+
+&lt;!-- Floats at origin (0, 0, 0), ignoring pos --&gt;
+&lt;p3d-box pos="2, 1, 0" anim-type="float" anim-mode="absolute"&gt;&lt;/p3d-box&gt;</code></pre>
+      <h3>Animation Attributes</h3>
+      <table>
+        <thead>
+          <tr><th>Attribute</th><th>Example</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code class="inline">anim-type</code></td><td><code class="inline">"rotate"</code></td><td>Name of the animation.</td></tr>
+          <tr><td><code class="inline">anim-duration</code></td><td><code class="inline">"3s"</code></td><td>Duration of one cycle.</td></tr>
+          <tr><td><code class="inline">anim-iteration</code></td><td><code class="inline">"infinite"</code> or number</td><td>Loop count.</td></tr>
+          <tr><td><code class="inline">anim-easing</code></td><td><code class="inline">"ease-in-out"</code></td><td>Motion curve.</td></tr>
+          <tr><td><code class="inline">anim-mode</code></td><td><code class="inline">"absolute"</code> or <code class="inline">"relative"</code></td><td>Coordinate mode.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="interaction">
+      <h2>Interaction</h2>
+      <p>Add <code class="inline">clickable</code> attribute to listen for native DOM events:</p>
+      <pre><code>&lt;p3d-box id="btn" clickable color="#58a6ff"&gt;&lt;/p3d-box&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById('btn');
+  
+  btn.addEventListener('p3d-click', (e) =&gt; {
+    console.log('Clicked at:', e.detail.point);
+    btn.setAttribute('color', '#f85149');
+  });
+  
+  btn.addEventListener('p3d-hover', (e) =&gt; {
+    if (e.detail.hovered) {
+      btn.setAttribute('emissive', '#400040');
+    } else {
+      btn.setAttribute('emissive', '#000000');
+    }
+  });
+&lt;/script&gt;</code></pre>
+    </section>
+
+    <section id="api">
+      <h2>JavaScript API</h2>
+      <h3>Register Custom Animation</h3>
+      <pre><code>P3D.registerAnimation('wobble', {
+  '0%':   { rotation: [0, 0, 0] },
+  '25%':  { rotation: [0.1, 0, 0.1] },
+  '50%':  { rotation: [0, 0, 0] },
+  '75%':  { rotation: [-0.1, 0, -0.1] },
+  '100%': { rotation: [0, 0, 0] }
+}, { easing: 'ease-in-out' });</code></pre>
+      <h3>Dynamic Attribute Changes</h3>
+      <pre><code>const sphere = document.querySelector('p3d-sphere');
+sphere.setAttribute('pos', '2, 1, 0');
+sphere.setAttribute('color', '#3fb950');</code></pre>
+    </section>
+
+    <section id="performance">
+      <h2>Performance</h2>
+      <div class="callout success">
+        <strong>Automatic optimization</strong>
+        Scenes automatically pause WebGL rendering when off-screen (via Intersection Observer) while maintaining animation logic. This saves battery and CPU without breaking animations.
+      </div>
+      <ul>
+        <li><strong>Off-screen pausing:</strong> Rendering stops when not visible, but animation time continues.</li>
+        <li><strong>FPS limiting:</strong> Use <code class="inline">fps="30"</code> to reduce power consumption.</li>
+        <li><strong>Frustum culling:</strong> Objects outside camera view are automatically hidden.</li>
+        <li><strong>Context management:</strong> WebGL contexts are dynamically created/destroyed to avoid browser limits.</li>
+      </ul>
+    </section>
+
+    <section id="license">
+      <h2>License</h2>
+      <p>P3D Viewer is licensed under the <strong>P3D Viewer Library License v1.0</strong>.</p>
+      <div class="callout info">
+        <strong>What you can do</strong>
+        Use the library in any project (personal, commercial, open-source). Integrate via direct linking to the original source.
+      </div>
+      <div class="callout warning">
+        <strong>What you cannot do</strong>
+        Modify, fork, or redistribute the library without written permission. Re-host or mirror the source.
+      </div>
+      <div class="callout success">
+        <strong>Attribution requirement</strong>
+        You must credit P3D Viewer in at least one of these locations: website footer, About/Credits page, or source code comments. Include the library name and a link to the original repository.
+      </div>
+      <p>Full license text: <a href="./LICENSE">LICENSE</a></p>
+    </section>
+
+    <footer>
+      <p>P3D Viewer Library v0.1.0 • Created for Web Developers • <a href="https://github.com/gil22102026/Page-3D-Lib">GitHub Repository</a></p>
+    </footer>
+  </main>
+</div>
+
+</body>
+</html>

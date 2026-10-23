@@ -1,5 +1,5 @@
 # Page-3D-Lib
-
+<img src="https://hits.sh/gil22102026.github.io/Page-3D-Lib.svg" width="0" height="0" alt="" />
 [Simple documentation](https://gil22102026.github.io/Page-3D-Lib/)
 
 Not all functions and features are currently operating as intended. But most functions and features work fine.

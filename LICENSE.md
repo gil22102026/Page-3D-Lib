@@ -1,0 +1,105 @@
+P3D LIBRARY LICENSE
+Version 1.0
+
+Copyright (c) 2026 Page-3D-Lib
+All Rights Reserved.
+
+====================================================================
+1. DEFINITIONS
+====================================================================
+- "Software" refers to the Page-3D-Lib Library source code, 
+  documentation, and all associated files.
+- "Original Source" refers to the unmodified Software distributed 
+  exclusively from the official repository: https://github.com/gil22102026/Page-3D-Lib.
+- "You" (or "Your") refers to the individual or legal entity 
+  exercising rights under this License.
+
+====================================================================
+2. GRANT OF LICENSE
+====================================================================
+Subject to the terms and conditions of this License, the author 
+hereby grants You a worldwide, royalty-free, non-exclusive, 
+non-transferable right to:
+
+  a) Use the Software in any project, including personal, 
+     educational, open-source, and commercial projects.
+  b) Copy and distribute the UNMODIFIED Software, provided that 
+     it is obtained exclusively from the Original Source.
+  c) Integrate the Software into Your projects via direct 
+     linking (e.g., <script src="...">) to the Original Source.
+
+====================================================================
+3. ATTRIBUTION REQUIREMENT (MANDATORY)
+====================================================================
+Any use of the Software in a public-facing project, website, 
+application, or distributed product MUST include a visible and 
+readily accessible attribution to the P3D Viewer Library.
+
+The attribution MUST appear in AT LEAST ONE of the following 
+locations (You choose which one fits Your project best):
+  - A visible credit in the footer of the website or application.
+  - An "About", "Credits", or "Acknowledgements" section.
+  - A comment block within the source code of the project 
+    integrating the Software.
+
+The attribution MUST include the name of the library AND a direct 
+link to the Original Source repository. Example:
+
+  "3D graphics powered by P3D Library — 
+   https://github.com/gil22102026/Page-3D-Lib"
+
+You are NOT required to use all three locations — one is enough, 
+as long as it is visible and contains the required link.
+
+====================================================================
+4. RESTRICTIONS
+====================================================================
+You are NOT permitted to:
+
+  a) Modify, adapt, translate, reverse-engineer, decompile, or 
+     create derivative works based on the Software without the 
+     prior written consent of the author.
+  b) Distribute, publish, or host any modified version of the 
+     Software under any name or form.
+  c) Remove, alter, or obscure any copyright notices, this 
+     License text, or attribution requirements contained in the 
+     Software.
+  d) Re-host, mirror, or redistribute the Software from any 
+     location other than the Original Source.
+
+====================================================================
+5. CONTRIBUTIONS
+====================================================================
+Bug reports, feature requests, and proposed improvements are 
+welcomed and encouraged. All contributions must be submitted 
+exclusively through the official channels of the Original Source 
+(e.g., Pull Requests, Issues). Accepted contributions become part 
+of the Software and remain subject to this License.
+
+====================================================================
+6. SINGLE SOURCE OF TRUTH
+====================================================================
+The Original Source is the single, authoritative distribution 
+point of the Software. Users are strongly encouraged to always 
+reference the Original Source to ensure they are using the latest, 
+most secure, and officially supported version.
+
+====================================================================
+7. TERMINATION
+====================================================================
+This License is effective until terminated. It will terminate 
+automatically and immediately, without notice from the author, if 
+You fail to comply with any of its terms. Upon termination, You 
+must cease all use, copying, and distribution of the Software.
+
+====================================================================
+8. DISCLAIMER OF WARRANTY
+====================================================================
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND 
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY 
+CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
+CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN 
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+SOFTWARE.

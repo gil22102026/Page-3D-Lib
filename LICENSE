@@ -1,5 +1,5 @@
 P3D LIBRARY LICENSE
-Version 1.0
+Version 1.1
 
 Copyright (c) 2026 Page-3D-Lib
 All Rights Reserved.
@@ -68,7 +68,23 @@ You are NOT permitted to:
      location other than the Original Source.
 
 ====================================================================
-5. CONTRIBUTIONS
+5. PATENT GRANT AND RETALIATION
+====================================================================
+Subject to the terms and conditions of this License, the author 
+hereby grants You a perpetual, worldwide, non-exclusive, no-charge, 
+royalty-free, irrevocable (except as stated in this section) patent 
+license to make, have made, use, offer to sell, sell, import, and 
+otherwise transfer the Software.
+
+If You institute patent litigation against any entity (including 
+a cross-claim or counterclaim in a lawsuit) alleging that the 
+Software or any contribution incorporated within the Software 
+constitutes direct or contributory patent infringement, then any 
+patent licenses granted to You under this License for that Software 
+shall terminate as of the date such litigation is filed.
+
+====================================================================
+6. CONTRIBUTIONS
 ====================================================================
 Bug reports, feature requests, and proposed improvements are 
 welcomed and encouraged. All contributions must be submitted 
@@ -77,7 +93,7 @@ exclusively through the official channels of the Original Source
 of the Software and remain subject to this License.
 
 ====================================================================
-6. SINGLE SOURCE OF TRUTH
+7. SINGLE SOURCE OF TRUTH
 ====================================================================
 The Original Source is the single, authoritative distribution 
 point of the Software. Users are strongly encouraged to always 
@@ -85,21 +101,24 @@ reference the Original Source to ensure they are using the latest,
 most secure, and officially supported version.
 
 ====================================================================
-7. TERMINATION
+8. TERMINATION
 ====================================================================
 This License is effective until terminated. It will terminate 
 automatically and immediately, without notice from the author, if 
-You fail to comply with any of its terms. Upon termination, You 
-must cease all use, copying, and distribution of the Software.
+You fail to comply with any of its terms (including the patent 
+retaliation clause in Section 5). Upon termination, You must 
+cease all use, copying, and distribution of the Software.
 
 ====================================================================
-8. DISCLAIMER OF WARRANTY
+9. DISCLAIMER OF WARRANTY AND LIMITATION OF LIABILITY
 ====================================================================
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND 
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY 
-CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND 
+NONINFRINGEMENT. 
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
+ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
 CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN 
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
 SOFTWARE.

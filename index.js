@@ -1,7 +1,7 @@
 /**
     * P3D Library
     * Copyright (c) 2026 Page-3D-Lib
-    * Licensed under the P3D Library License v1.0
+    * Licensed under the P3D Library License v1.1
     * Official source: https://github.com/gil22102026/Page-3D-Lib/
     */
 
